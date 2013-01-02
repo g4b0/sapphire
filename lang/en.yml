@@ -175,7 +175,7 @@ en:
     TEXT2: 'password reset link'
     TEXT3: for
   Form:
-    FIELDISREQUIRED: '%s is required'
+    FIELDISREQUIRED: '{name} is required'
     SubmitBtnLabel: Go
     VALIDATIONCREDITNUMBER: 'Please ensure you have entered the {number} credit card number correctly'
     VALIDATIONNOTUNIQUE: 'The value entered is not unique'
