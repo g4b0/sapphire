@@ -358,6 +358,20 @@ class GridFieldDetailForm_ItemRequest extends RequestHandler {
 		}
 		$fields = $this->component->getFields();
 		if(!$fields) $fields = $this->record->getCMSFields();
+		
+		// Sort the FieldList using optional weight 
+		if ($fields->hasTabSet()) {
+			// get the tabSet
+			$tabSet = $fields->first();
+			// get the tabs
+			$tabs = $tabSet->Tabs();
+			foreach ($tabs as $tab) {
+				// get tab's fields
+				$tabFields = $tab->Fields();
+				$tabFields->sortByWeight();
+			}
+		}
+			
 		$form = new Form(
 			$this,
 			'ItemEditForm',
