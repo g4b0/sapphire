@@ -156,6 +156,9 @@ The `$Content` variable contain the published content by default,
 and only preview draft content if explicitly requested (e.g. by the "preview" feature in the CMS).
 If you want to force a specific stage, we recommend the `Controller->init()` method for this purpose.
 
+The current stage for each request is automatically determined by VersionedRequestFilter before any controllers initialize, through Versioned::choose_site_stage(). It checks for a Stage GET parameter, so you can force a draft stage by appending ?stage=Stage to your request. The setting is "sticky" in the PHP session, so any subsequent requests will also be in draft stage.
+It can be useful to add the variable $SilverStripeNavigator somewhere into the template, since it allows you to put a mini "admin" bar on the page which isn't visible to non editors. It shows the current stage and provides a convenient CMS link and version changing link.
+
 ## Recipes
 
 ### Trapping the publication event
